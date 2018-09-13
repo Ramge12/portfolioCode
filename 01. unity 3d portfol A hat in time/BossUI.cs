@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BossUI : MonoBehaviour {
 
-    /* 패턴마다 그 패턴의 이미지를 모아 패턴에 맞춰서 그림을 출력합니다 */
-
     public GameObject Idle;
     public GameObject Patton1;
     public GameObject Patton2;
