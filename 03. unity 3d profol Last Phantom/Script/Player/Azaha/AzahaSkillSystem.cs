@@ -298,6 +298,11 @@ public class AzahaSkillSystem : MonoBehaviour {
         {
             timer += Time.deltaTime;
             skill_3_Text.text = (skill_3_CoolTime - timer).ToString("N2");
+
+            if(timer>=skill_3_CoolTime*0.5f)
+            {
+                magicShield.gameObject.SetActive(false);
+            }
             if (timer >= skill_3_CoolTime) break;
             yield return new WaitForSeconds(Time.deltaTime);
         }

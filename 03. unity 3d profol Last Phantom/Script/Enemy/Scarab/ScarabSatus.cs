@@ -11,6 +11,7 @@ public class ScarabSatus : MonoBehaviour {
 
     [System.NonSerialized] public Transform bodyTransform;
     [System.NonSerialized] public CharactorStatistics chractorStat;
+    bool scarabDeath = false;
 
     private void Start()
     {
@@ -42,7 +43,11 @@ public class ScarabSatus : MonoBehaviour {
             {
                 playerTransform.GetComponent<PlayerInventory>().SetGold(chractorStat.Exp);
                 bodyTransform.GetComponent<ScarabController>().SetAnimation(EnemyStatus.enemy_Death);
-                bodyTransform.GetComponent<ScarabController>().sacrabSpawnPoint.CountUI();
+                if (!scarabDeath)
+                {
+                    scarabDeath = true;
+                    bodyTransform.GetComponent<ScarabController>().sacrabSpawnPoint.CountUI();
+                }
             }
         }
         if (other.CompareTag("CarSkill"))

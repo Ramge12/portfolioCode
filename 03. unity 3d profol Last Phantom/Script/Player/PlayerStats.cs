@@ -38,14 +38,14 @@ public class PlayerStats : MonoBehaviour{
         Load();
     }
 
-    public void CurPlayerStatus(PlayerState playerKeyStatus)
+    public void CurPlayerStatus(PlayerState playerCurStatus)
     {
         if (playerCharactor == PlayerCharactor.Kohaku_mode)
         {
             PlayerState preStautus = playerState;
-            playerState = playerKeyStatus;
+            playerState = playerCurStatus;
 
-            switch (playerKeyStatus)
+            switch (playerCurStatus)
             {
                 case PlayerState.Player_Attack:
                     StartCoroutine(AnimationEnd());
@@ -75,7 +75,7 @@ public class PlayerStats : MonoBehaviour{
         }
         else //AzahaMode
         {
-            switch (playerKeyStatus)
+            switch (playerCurStatus)
             {
                 case PlayerState.Player_Jump:
                     if (azahaControl.getAzahaFlying() && azahaControl.getAzahaFlyEnable())
@@ -113,7 +113,7 @@ public class PlayerStats : MonoBehaviour{
                     break;
 
                 default:
-                    playerState = playerKeyStatus;
+                    playerState = playerCurStatus;
                     azahaControl.AnimationCheck(playerState);
                     break;
             }

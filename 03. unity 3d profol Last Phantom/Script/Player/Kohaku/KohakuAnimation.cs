@@ -12,9 +12,11 @@ public class KohakuAnimation : MonoBehaviour {
 
     [SerializeField] WeaponValue weaponValue;
     bool playerOneAttack;
+    private IEnumerator weaponCoroutine;
 
     void Start () {
         kohakuAnimation = GetComponent<Animator>();
+        weaponCoroutine = WeaponColliderActive();
     }
 	
     public void BattleChange() {
@@ -59,6 +61,8 @@ public class KohakuAnimation : MonoBehaviour {
                 kohakuAnimation.SetBool("Attack", false);
                 attackCount = 0;
                 playerOneAttack = false;
+                weaponCoroutine = weaponCoroutine = WeaponColliderActive();
+                StopCoroutine(weaponCoroutine);
                 return false;
             }
             if (kohakuAnimation.GetCurrentAnimatorStateInfo(0).IsName("Attack_2") && attackCount == 1.0)
@@ -66,6 +70,8 @@ public class KohakuAnimation : MonoBehaviour {
                 kohakuAnimation.SetBool("Attack", false);
                 attackCount = 0;
                 playerOneAttack = false;
+                weaponCoroutine = weaponCoroutine = WeaponColliderActive();
+                StopCoroutine(weaponCoroutine);
                 return false;
             }
             if (kohakuAnimation.GetCurrentAnimatorStateInfo(0).IsName("Attack_3") && attackCount == 1.5)
@@ -73,6 +79,8 @@ public class KohakuAnimation : MonoBehaviour {
                 kohakuAnimation.SetBool("Attack", false);
                 attackCount = 0;
                 playerOneAttack = false;
+                weaponCoroutine = weaponCoroutine = WeaponColliderActive();
+                StopCoroutine(weaponCoroutine);
                 return false;
             }
             if (kohakuAnimation.GetCurrentAnimatorStateInfo(0).IsName("SlideStep"))
@@ -140,13 +148,15 @@ public class KohakuAnimation : MonoBehaviour {
                     playerOneAttack = true;
                     StartCoroutine(StartAnimationSound());
                 }
-                StopCoroutine(WeaponColliderActive());
-                StartCoroutine(WeaponColliderActive());
+                weaponCoroutine = weaponCoroutine = WeaponColliderActive();
+                StartCoroutine(weaponCoroutine);
                 break;
             case PlayerState.Player_SlideStep:
                 kohakuAnimation.SetBool("SlideStep", true);
                 break;
             case PlayerState.Player_SpecialAttack:
+                weaponCoroutine = weaponCoroutine = WeaponColliderActive();
+                StartCoroutine(weaponCoroutine);
                 kohakuAnimation.SetBool("SpecialAttack", true);
                 PlayerSound.playSoundManagerCall().PlayAudio("specialAttack", false, 0.7f);
                 break;
@@ -170,7 +180,8 @@ public class KohakuAnimation : MonoBehaviour {
                 kohakuAnimation.SetFloat("PosX", Input.GetAxisRaw("Horizontal"));
                 break;
             case PlayerState.Player_JumpAttack:
-                StartCoroutine(WeaponColliderActive());
+                weaponCoroutine = weaponCoroutine = WeaponColliderActive();
+                StartCoroutine(weaponCoroutine);
                 kohakuAnimation.SetBool("JumpAttack", true);
                 break;
             case PlayerState.Player_Hurt:
