@@ -56,5 +56,4 @@ public class RobomanController : MonoBehaviour {
             robomanBattle.StopShooting();
         }
     }
-
 }

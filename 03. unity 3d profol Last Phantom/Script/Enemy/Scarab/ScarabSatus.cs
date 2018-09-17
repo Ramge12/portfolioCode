@@ -55,11 +55,23 @@ public class ScarabSatus : MonoBehaviour {
             hitEffect.Play();
             if (chractorStat.HP > 0)
             {
+                hitText.SetActive(true);
+                hitText.transform.position = this.transform.position;
+                hitText.GetComponent<Rigidbody>().Sleep();
+                hitText.GetComponent<Rigidbody>().AddForce(0, 300f, 0);
+                hitText.transform.GetChild(0).GetComponent<TextMesh>().text = (-other.GetComponent<WeaponValue>().damage).ToString();
+                if (chractorStat.HP < chractorStat.hpMax * 0.5f) hitText.transform.GetChild(0).GetComponent<TextMesh>().color = new Color(255, 0, 0);
                 chractorStat.AddCharactorHealthPoint(-other.GetComponent<WeaponValue>().damage);
             }
             else
             {
+                //playerTransform.GetComponent<PlayerInventory>().SetGold(chractorStat.Exp);
                 bodyTransform.GetComponent<ScarabController>().SetAnimation(EnemyStatus.enemy_Death);
+                if (!scarabDeath)
+                {
+                    scarabDeath = true;
+                    bodyTransform.GetComponent<ScarabController>().sacrabSpawnPoint.CountUI();
+                }
             }
         }
     }

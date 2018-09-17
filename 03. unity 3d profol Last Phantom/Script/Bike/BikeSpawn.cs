@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BikeSpawn : MonoBehaviour {
 
-    [SerializeField]private GameObject[] bikeParts = new GameObject[22];
+    [SerializeField] private GameObject[] bikeParts = new GameObject[22];
 
     void Start()
     {

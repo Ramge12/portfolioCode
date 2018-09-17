@@ -47,9 +47,15 @@ public class GodzillaController : MonoBehaviour {
         {
             godzillaAnimation.AnimationEndCheck();
             GozillaMove();
+
+            for (int i = 0; i < damagePlayer.Length; i++)
+            {
+                damagePlayer[i].oneDamage = true;
+            }
         }
         else
         {
+
             nav.isStopped = true;
             nav.speed = 0;
             boosUI.QuestClearUI();

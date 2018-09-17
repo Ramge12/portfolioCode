@@ -6,8 +6,8 @@ public class DamagePlayer : MonoBehaviour {
 
     public bool battle;
 
-    [System.NonSerialized] public int damage;
-    [System.NonSerialized] public bool oneDamage = true;
+    public int damage;
+   public bool oneDamage = true;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,7 +15,7 @@ public class DamagePlayer : MonoBehaviour {
         {
             if (battle && oneDamage)
             {
-                other.transform.GetComponent<PlayerStats>().AddPlayerHealthPoint(damage,0);
+                other.transform.GetComponent<PlayerStats>().AddPlayerHealthPoint(-damage,0);
                 oneDamage = false;
             }
         }

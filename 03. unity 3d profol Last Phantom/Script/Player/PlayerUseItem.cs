@@ -32,7 +32,7 @@ public class PlayerUseItem : MonoBehaviour {
      void CarDropSkill()
      {
          carCount++;
-         if (carCount >=3) CarCrushSkill.call().reload(carCount % 3);
+         if (carCount >=3) CarCrushSkill.call().Reload(carCount % 3);
      
          Transform carDrop;
          carDrop = CarCrushSkill.call().GetObject("CarCrush").transform;

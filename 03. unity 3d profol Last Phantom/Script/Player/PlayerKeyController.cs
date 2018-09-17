@@ -10,8 +10,9 @@ public class PlayerKeyController : MonoBehaviour {
     [SerializeField] private CharactorMoveValue charactorMoveValue = new CharactorMoveValue();
 
     [Header("PlayerScripts")]
-    [SerializeField] private BikeSystem bikeSystem;
     [SerializeField] private PlayerUI playerUI;
+    [SerializeField] private BikeSystem bikeSystem;
+    [SerializeField] private ParticleSystem jumpEffect;
 
     [System.NonSerialized] public Vector3 moveVector;         
     [System.NonSerialized] public bool stopPlayer = false;
@@ -28,7 +29,6 @@ public class PlayerKeyController : MonoBehaviour {
     private Transform playerTransform;
     private PlayerCharactor changeCharactor = PlayerCharactor.Azaha_mode;
 
-    [SerializeField] private ParticleSystem jumpEffect;
    void Start()
     {
         moveVector = Vector3.zero;

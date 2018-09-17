@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class FrameChecker : MonoBehaviour {
 
-    float deltaTime = 0.0f;
+    private float deltaTime = 0.0f;
+    private float msec;
+    private float fps;
+    private float worstFps = 100f;
+    private string text;
 
-    GUIStyle style;
-    Rect rect;
-    float msec;
-    float fps;
-    float worstFps = 100f;
-    string text;
+    private Rect rect;
+    private GUIStyle style;
 
     void Awake()
     {

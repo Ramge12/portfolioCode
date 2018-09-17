@@ -30,14 +30,14 @@ public class WebManager {
     }
 
     public Vector3 GetConstrainedVelocity(Vector3 currentPos, Vector3 previousPosition, float time)
-    {   //현재 위치, 이전 위치, 시간
-        float distanceToTether; //접점까지의 거리
-        Vector3 constrainedPosition;    //강요된?
-        Vector3 predictedPosition;      //예상된
+    {   
+        float distanceToTether; 
+        Vector3 constrainedPosition;    //플레이어 부터 거미줄을 쏜 지점까지의 단위 벡터에 거미줄 값을 곱한 벡터
+        Vector3 predictedPosition;      //이동값을 예측한 위치로부터의 방향을 구했을 때의 방향 벡터입니다.
 
-        distanceToTether = Vector3.Distance(currentPos, parentPosition);   //현재 위치에서 접점까지의 ㄱ리
+        distanceToTether = Vector3.Distance(currentPos, parentPosition);   
 
-        if (distanceToTether > webLength)  //거리가 줄길이보다 길면
+        if (distanceToTether > webLength) 
         {
             constrainedPosition = Vector3.Normalize(currentPos - parentPosition) * webLength;
             constrainedPosition += parentPosition;
@@ -45,7 +45,7 @@ public class WebManager {
             return predictedPosition;
         }
         return Vector3.zero;
-    }   //현재위치의 normalize값
+    }  
 
     public void SwitchTether(Vector3 newPosition)
     {

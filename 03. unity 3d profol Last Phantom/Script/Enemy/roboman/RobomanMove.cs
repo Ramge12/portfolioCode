@@ -65,5 +65,4 @@ public class RobomanMove : MonoBehaviour {
 
         return EnemyStatus.enemy_Idle;
     }
-
 }

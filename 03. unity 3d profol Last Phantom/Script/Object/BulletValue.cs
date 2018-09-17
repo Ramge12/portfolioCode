@@ -38,7 +38,5 @@ public class BulletValue : MonoBehaviour {
             bulletRigid.Sleep();
             bulletTrans.position = new Vector3(0, -200, 0);
         }
-
     }
-
 }

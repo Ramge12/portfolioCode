@@ -71,7 +71,7 @@ public class BulletManager : MonoBehaviour {
         return null;
     }
 
-    public void reload(int _Count)
+    public void Reload(int _Count)
     {
         for (int i = 0; i < _Count; i++)
         {

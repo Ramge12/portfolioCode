@@ -69,7 +69,7 @@ public class CarCrushSkill : MonoBehaviour {
         return null;
     }
 
-    public void reload(int number)
+    public void Reload(int number)
     {
         carManager[number].SetActive(false);
     }

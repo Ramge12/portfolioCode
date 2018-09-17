@@ -197,7 +197,7 @@ public class AzahaSkillSystem : MonoBehaviour {
     {
         yield return new WaitForSeconds(1.0f);
         reLoading = false;
-        BulletManager.bulletManagerCall().reload(6);
+        BulletManager.bulletManagerCall().Reload(6);
         bulletNumber = 0;
         yield return null;
     }

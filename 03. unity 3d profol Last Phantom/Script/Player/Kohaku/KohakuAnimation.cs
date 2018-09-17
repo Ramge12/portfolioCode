@@ -6,13 +6,13 @@ public class KohakuAnimation : MonoBehaviour {
 
     public bool kohakuBattle;
 
+    private bool playerOneAttack;
     private float idleValue = 0;
     private float attackCount = 0;
     private Animator kohakuAnimation;
+    private IEnumerator weaponCoroutine;
 
     [SerializeField] WeaponValue weaponValue;
-    bool playerOneAttack;
-    private IEnumerator weaponCoroutine;
 
     void Start () {
         kohakuAnimation = GetComponent<Animator>();

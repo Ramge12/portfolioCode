@@ -10,7 +10,7 @@ public class WebController  {
     [SerializeField] private float maximumSpeed;
     [SerializeField] private Vector3 gravityDirection = new Vector3(0, 1, 0);
 
-    public Vector3 velocity;        //속도
+    public Vector3 velocity;       
     private Vector3 dampingDirection;       //공기저항력
 
     public void ApplyGravity()

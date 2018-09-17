@@ -40,7 +40,6 @@ public class KohakuSkillSystem : MonoBehaviour {
        playerTransform = this.transform.parent;
         previousPosition = playerTransform.position;
         controller = playerTransform.GetComponent<CharacterController>();
-        //webManager.playerTransform.parent = webManager.wepPointTransform;
     }
 
     public void WeaponCheck(bool m_Battle)
